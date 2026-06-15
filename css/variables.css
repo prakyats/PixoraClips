@@ -1,0 +1,43 @@
+:root {
+  /* Colors */
+  --bg-0: #050505;
+  --bg-1: #0B0B0B;
+  --accent-red: #C8102E;
+  --accent-red-soft: #7A0C1C;
+  --accent-red-glow: rgba(200, 16, 46, 0.32);
+  --text-main: #FFFFFF;
+  --text-muted: #B3B3B3;
+  --line-color: rgba(200, 16, 46, 0.22);
+  --line-soft: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Spacing (Generous Layouts) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 128px;
+
+  /* Grid Layouts */
+  --grid-gap-sm: 16px;
+  --grid-gap-md: 24px;
+  --grid-gap-lg: 48px;
+
+  /* Motion & Animations (Matches GSAP feel) */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-normal: 0.4s var(--ease-out-expo);
+  --transition-slow: 0.8s var(--ease-out-expo);
+
+  /* Miscellaneous */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --max-width-container: 1240px;
+}

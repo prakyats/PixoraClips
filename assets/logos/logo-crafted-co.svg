@@ -1,0 +1,5 @@
+<svg viewBox="0 0 170 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15 2L26 10L15 28L4 10L15 2Z" fill="currentColor"/>
+  <path d="M4 10H26L15 17L4 10Z" fill="#050505"/>
+  <text x="36" y="22" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="currentColor" letter-spacing="0.08em">CRAFTED</text>
+</svg>

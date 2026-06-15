@@ -1,0 +1,5 @@
+<svg viewBox="0 0 160 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15 2L28 15L15 28L2 15L15 2Z" stroke="currentColor" stroke-width="2.5" fill="none"/>
+  <circle cx="15" cy="15" r="5" fill="currentColor"/>
+  <text x="38" y="22" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="currentColor" letter-spacing="0.08em">NOVA</text>
+</svg>

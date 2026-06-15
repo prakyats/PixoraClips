@@ -1,0 +1,50 @@
+[
+  {
+    "id": "urban-roast",
+    "name": "URBAN ROAST CO.",
+    "logo": "/assets/logos/logo-urban-roast.svg",
+    "industry": "Food & Beverage"
+  },
+  {
+    "id": "verve-fitness",
+    "name": "VERVE FITNESS",
+    "logo": "/assets/logos/logo-verve-fitness.svg",
+    "industry": "Fitness"
+  },
+  {
+    "id": "nova-techwear",
+    "name": "NOVA TECHWEAR",
+    "logo": "/assets/logos/logo-nova-techwear.svg",
+    "industry": "Fashion"
+  },
+  {
+    "id": "shoreline-resorts",
+    "name": "SHORELINE RESORTS",
+    "logo": "/assets/logos/logo-shoreline-resorts.svg",
+    "industry": "Hospitality"
+  },
+  {
+    "id": "lume-skincare",
+    "name": "LUME SKINCARE",
+    "logo": "/assets/logos/logo-lume-skincare.svg",
+    "industry": "Skincare"
+  },
+  {
+    "id": "atlas-properties",
+    "name": "ATLAS PROPERTIES",
+    "logo": "/assets/logos/logo-atlas-properties.svg",
+    "industry": "Real Estate"
+  },
+  {
+    "id": "pulse-studios",
+    "name": "PULSE STUDIOS",
+    "logo": "/assets/logos/logo-pulse-studios.svg",
+    "industry": "Events"
+  },
+  {
+    "id": "crafted-co",
+    "name": "CRAFTED & CO.",
+    "logo": "/assets/logos/logo-crafted-co.svg",
+    "industry": "Product"
+  }
+]

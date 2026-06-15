@@ -1,0 +1,58 @@
+/* Core Animations & GSAP fallback states */
+
+/* Fade-up animations for non-JS / standard fallback reveals */
+.reveal-fallback {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal-fallback.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accent glow animation for brand items */
+@keyframes ambient-glow {
+  0%, 100% {
+    opacity: 0.3;
+    filter: blur(50px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(70px);
+  }
+}
+
+.glow.animate {
+  animation: ambient-glow 8s ease-in-out infinite;
+}
+
+/* Hover effects for logo images */
+.client-logo-interactive {
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.client-logo-interactive:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px var(--accent-red-glow));
+}
+
+/* GSAP active transitions adjustments */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+/* Ensure no transitions are applied when users request reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-fallback {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .glow, .contact-pulse-glow {
+    animation: none !important;
+  }
+}
