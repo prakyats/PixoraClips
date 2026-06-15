@@ -7,8 +7,9 @@
     "client": "Mercedes-Benz",
     "services": ["Content Production"],
     "objective": "Capturing the track-tuned dynamics of the AMG line with high-intensity, cinematic reels.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_0486.jpg",
-    "video": "https://www.instagram.com/reel/DYw2zErSivv/embed/"
+    "source": "instagram",
+    "url": "https://www.instagram.com/reel/DYw2zErSivv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "/assets/images/thumbnails/CKZ_0486.jpg"
   },
   {
     "id": "video-2",
@@ -18,8 +19,9 @@
     "client": "Sky City",
     "services": ["Content Production", "Performance Marketing"],
     "objective": "Generating 500+ qualified event bookings for the hotel grand opening through teaser campaigns.",
-    "thumbnail": "/assets/images/thumbnails/Interior Lobby 1.jpg",
-    "video": "https://www.instagram.com/reel/DShsrxPFlUu/embed/"
+    "source": "instagram",
+    "url": "https://www.instagram.com/reel/DShsrxPFlUu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "/assets/images/thumbnails/Interior Lobby 1.jpg"
   },
   {
     "id": "video-3",
@@ -29,8 +31,9 @@
     "client": "Yamuna",
     "services": ["Brand Strategy", "Content Production"],
     "objective": "Attracting international high-net-worth buyers through cinematic property stories.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_0486.jpg",
-    "video": "https://www.instagram.com/reel/DVGyksOjcIW/embed/"
+    "source": "instagram",
+    "url": "https://www.instagram.com/reel/DVGyksOjcIW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "/assets/images/thumbnails/CKZ_0486.jpg"
   },
   {
     "id": "video-4",
@@ -40,8 +43,9 @@
     "client": "Frankfinn",
     "services": ["Brand Strategy", "Social Media"],
     "objective": "Increasing course enrolment inquiries through emotionally resonant graduate testimonial films.",
-    "thumbnail": "/assets/images/thumbnails/AKH_5129_1.jpg",
-    "video": "/assets/videos/reel-fitness.mp4"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/AKH_5129_1.jpg",
+    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-fitness.mp4"
   },
   {
     "id": "video-5",
@@ -51,8 +55,9 @@
     "client": "Lamborghini",
     "services": ["Brand Strategy", "Content Production"],
     "objective": "Building demand and exclusive brand desire through atmospheric, high-impact reveal videos.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_9763.jpg",
-    "video": "/assets/videos/reel-tech.mp4"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_9763.jpg",
+    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-tech.mp4"
   },
   {
     "id": "video-6",
@@ -62,8 +67,9 @@
     "client": "Le Sparrow",
     "services": ["Content Production", "Performance Marketing"],
     "objective": "Driving direct-to-consumer sales for a new organic facial glow serum.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_0241.jpg",
-    "video": "/assets/videos/reel-event.mp4"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0241.jpg",
+    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-event.mp4"
   },
   {
     "id": "video-7",
@@ -73,8 +79,9 @@
     "client": "Audi",
     "services": ["Performance Marketing"],
     "objective": "Generating qualified test drive leads for the brand's premium electric SUV range.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_1916.jpg",
-    "video": "/assets/videos/reel-estate.mp4"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_1916.jpg",
+    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-estate.mp4"
   },
   {
     "id": "video-8",
@@ -84,8 +91,9 @@
     "client": "F Salon",
     "services": ["Social Media", "Content Production"],
     "objective": "Redesigning the salon's grid aesthetic and organic reach to attract premium local clients.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_0241_1.jpg",
-    "video": "/assets/videos/reel-beauty.mp4"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0241_1.jpg",
+    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-beauty.mp4"
   },
   {
     "id": "photo-1",
@@ -95,7 +103,8 @@
     "client": "Le Sparrow",
     "services": ["Content Production"],
     "objective": "Clean, premium studio shots highlighting natural ingredients and texture.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_0101.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0101.jpg"
   },
   {
     "id": "photo-2",
@@ -105,7 +114,8 @@
     "client": "Sky City",
     "services": ["Content Production"],
     "objective": "Capturing the cozy, rustic ambient lighting and seating areas for press releases.",
-    "thumbnail": "/assets/images/thumbnails/Food Lobster.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Food Lobster.jpg"
   },
   {
     "id": "photo-3",
@@ -115,7 +125,8 @@
     "client": "MG Select",
     "services": ["Brand Strategy", "Content Production"],
     "objective": "High-contrast urban lookbook shooting showing apparel in functional environments.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_0301.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0301.jpg"
   },
   {
     "id": "photo-4",
@@ -125,7 +136,8 @@
     "client": "Yamuna",
     "services": ["Content Production"],
     "objective": "High-resolution architectural shots showcasing sea-view suites and premium amenities.",
-    "thumbnail": "/assets/images/thumbnails/Interior Lobby 1.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Interior Lobby 1.jpg"
   },
   {
     "id": "photo-5",
@@ -135,7 +147,8 @@
     "client": "Frankfinn",
     "services": ["Content Production"],
     "objective": "Capturing key speakers and dynamic networking moments at a major brand summit.",
-    "thumbnail": "/assets/images/thumbnails/CKK_7945.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKK_7945.jpg"
   },
   {
     "id": "photo-6",
@@ -145,7 +158,8 @@
     "client": "24 Carat",
     "services": ["Content Production"],
     "objective": "Macro shots focusing on premium materials, metallic finishes, and fine watch textures.",
-    "thumbnail": "/assets/images/thumbnails/CKZ_7955.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_7955.jpg"
   },
   {
     "id": "photo-7",
@@ -155,7 +169,8 @@
     "client": "Le Sparrow",
     "services": ["Content Production"],
     "objective": "Close-up texture macro detail shots illustrating serum viscosity and skin application.",
-    "thumbnail": "/assets/images/thumbnails/Food Fish.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Food Fish.jpg"
   },
   {
     "id": "photo-8",
@@ -165,6 +180,7 @@
     "client": "Audi",
     "services": ["Content Production"],
     "objective": "High-contrast studio lighting highlighting the aerodynamic body shapes and brand prestige.",
-    "thumbnail": "/assets/images/thumbnails/Food Lobster 2.jpg"
+    "source": "cloudinary",
+    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Food Lobster 2.jpg"
   }
 ]

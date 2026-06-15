@@ -59,6 +59,7 @@ export async function initPortfolio() {
       });
 
       attachCardEvents();
+      initLazyLoading();
     } catch (err) {
       console.error('Error rendering portfolio:', err);
       videoGrid.innerHTML = '<p style="color:var(--accent-red); grid-column: 1/-1; text-align:center;">Failed to load portfolio items.</p>';
@@ -142,31 +143,99 @@ export async function initPortfolio() {
   }
 }
 
+// Helper to parse Cloudinary URLs and generate responsive srcset variants
+function getCloudinaryResponsiveSrcset(url) {
+  const match = url.match(/^(https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\/)(?:[^/]+\/)*(v\d+\/)?(.+)$/);
+  if (!match) return null;
+  const prefix = match[1];
+  const version = match[2] || '';
+  const publicIdWithExt = match[3];
+  
+  const sizes = [400, 800, 1200];
+  const srcsetString = sizes.map(w => `${prefix}f_auto,q_auto,w_${w}/${version}${publicIdWithExt} ${w}w`).join(', ');
+  const fallbackSrc = `${prefix}f_auto,q_auto,w_800/${version}${publicIdWithExt}`;
+  
+  return { srcset: srcsetString, src: fallbackSrc };
+}
+
+// Helper to automatically generate WebP poster frame from video source URL
+export function getCloudinaryVideoPoster(url) {
+  const match = url.match(/^(https:\/\/res\.cloudinary\.com\/[^/]+\/video\/upload\/)(?:[^/]+\/)*(v\d+\/)?(.+)\.[^.]+$/);
+  if (!match) return url;
+  const prefix = match[1];
+  const version = match[2] || '';
+  const publicId = match[3];
+  return `${prefix.replace('video/upload', 'image/upload')}f_webp,q_auto,w_720/${version}${publicId}.webp`;
+}
+
+// Helper to apply secure transformations to Cloudinary videos
+export function getCloudinaryVideoUrl(url) {
+  const match = url.match(/^(https:\/\/res\.cloudinary\.com\/[^/]+\/video\/upload\/)(?:[^/]+\/)*(v\d+\/)?(.+)$/);
+  if (!match) return url;
+  const prefix = match[1];
+  const version = match[2] || '';
+  const publicIdWithExt = match[3];
+  return `${prefix}f_auto,q_auto,w_720,vc_auto/${version}${publicIdWithExt}`;
+}
+
 function createProjectCard(project) {
   const isVideo = project.type === 'video';
   const card = document.createElement('div');
+  const source = project.source || 'cloudinary';
   
-  card.className = `portfolio-card ${isVideo ? 'video-aspect' : 'photo-aspect'}`;
+  card.className = `portfolio-card ${source}-card ${isVideo ? 'video-aspect' : 'photo-aspect'}`;
   card.setAttribute('tabindex', '0');
   card.setAttribute('role', 'button');
-  card.setAttribute('aria-label', `${isVideo ? 'Play' : 'View'} ${project.title} project`);
   
+  // Set accessibility labels
+  if (source === 'instagram') {
+    card.setAttribute('aria-label', `View ${project.title} on Instagram`);
+  } else {
+    card.setAttribute('aria-label', `Open ${project.title} ${isVideo ? 'video' : 'photo'}`);
+  }
+  
+  card.dataset.id = project.id;
   card.dataset.type = project.type;
+  card.dataset.source = source;
   card.dataset.title = project.title;
   card.dataset.cat = project.category;
   
+  // Resolve image paths and responsive rules
+  let imgSrc = '';
+  let srcsetAttr = '';
   const baseImg = project.thumbnail;
-  const hasExtension = /\.(jpg|jpeg|png|webp|gif|svg|avif)(\?.*)?$/i.test(baseImg) || baseImg.startsWith('http') || baseImg.startsWith('//');
-  const imgSrc = hasExtension ? baseImg : `${baseImg}-800.webp`;
-  const srcsetAttr = hasExtension ? '' : `srcset="${baseImg}-400.webp 400w, ${baseImg}-800.webp 800w, ${baseImg}-1200.webp 1200w"`;
-
-  if (isVideo) {
-    card.dataset.video = project.video;
-    if (project.video.includes('instagram.com') || project.video.includes('drive.google.com')) {
-      card.dataset.embed = 'true';
+  
+  const isCloudinary = source === 'cloudinary';
+  const isCloudinaryUrl = baseImg.startsWith('http') && baseImg.includes('cloudinary.com');
+  
+  if (isCloudinary && isCloudinaryUrl) {
+    const cloudinaryData = getCloudinaryResponsiveSrcset(baseImg);
+    if (cloudinaryData) {
+      imgSrc = cloudinaryData.src;
+      srcsetAttr = cloudinaryData.srcset;
+    } else {
+      imgSrc = baseImg;
     }
   } else {
-    card.dataset.hires = hasExtension ? baseImg : `${project.thumbnail}-1200.webp`;
+    const hasExtension = /\.(jpg|jpeg|png|webp|gif|svg|avif)(\?.*)?$/i.test(baseImg) || baseImg.startsWith('http') || baseImg.startsWith('//');
+    imgSrc = hasExtension ? baseImg : `${baseImg}-800.webp`;
+    srcsetAttr = hasExtension ? `${baseImg}` : `${baseImg}-400.webp 400w, ${baseImg}-800.webp 800w, ${baseImg}-1200.webp 1200w`;
+  }
+  
+  if (source === 'instagram') {
+    card.dataset.url = project.url;
+  } else {
+    if (isVideo) {
+      card.dataset.video = project.video;
+    } else {
+      // For photos, use 1600px optimized size for lightbox
+      if (isCloudinaryUrl) {
+        card.dataset.hires = baseImg.replace(/\/image\/upload\/(?:[^/]+\/)?/, '/image/upload/f_auto,q_auto,w_1600/');
+      } else {
+        const hasExtension = /\.(jpg|jpeg|png|webp|gif|svg|avif)(\?.*)?$/i.test(baseImg) || baseImg.startsWith('http');
+        card.dataset.hires = hasExtension ? baseImg : `${project.thumbnail}-1200.webp`;
+      }
+    }
   }
   
   const widthAttr = isVideo ? "360" : "450";
@@ -175,20 +244,28 @@ function createProjectCard(project) {
   let cardHtml = `
     <div class="thumb-wrapper">
       <img 
-        src="${imgSrc}" 
-        ${srcsetAttr} 
+        data-src="${imgSrc}" 
+        ${srcsetAttr ? `data-srcset="${srcsetAttr}"` : ''} 
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
         loading="lazy" 
         decoding="async" 
         width="${widthAttr}" 
         height="${heightAttr}" 
         alt="${project.title}" 
-        class="thumb"
+        class="thumb lazy-thumb"
       >
     </div>
   `;
 
-  if (isVideo) {
+  // Draw appropriate overlay button/badge based on type
+  if (source === 'instagram') {
+    cardHtml += `
+      <div class="instagram-btn" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <span>View on Instagram</span>
+      </div>
+    `;
+  } else if (isVideo) {
     cardHtml += `
       <div class="play-btn" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8V4z"/></svg>
@@ -215,22 +292,64 @@ function createProjectCard(project) {
   return card;
 }
 
+function initLazyLoading() {
+  const lazyImages = document.querySelectorAll('.lazy-thumb');
+  
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+          }
+          if (img.dataset.srcset) {
+            img.srcset = img.dataset.srcset;
+          }
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '100px 0px',
+      threshold: 0.01
+    });
+    
+    lazyImages.forEach(img => observer.observe(img));
+  } else {
+    // Fallback if IntersectionObserver is unsupported
+    lazyImages.forEach(img => {
+      if (img.dataset.src) img.src = img.dataset.src;
+      if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+      img.classList.add('loaded');
+    });
+  }
+}
+
+function handleCardAction(card) {
+  const source = card.dataset.source;
+  if (source === 'instagram') {
+    const url = card.dataset.url;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  } else {
+    if (window.openLightbox) {
+      window.openLightbox(card);
+    }
+  }
+}
+
 function attachCardEvents() {
   const cards = document.querySelectorAll('.portfolio-card');
   
   cards.forEach(card => {
     card.addEventListener('click', () => {
-      if (window.openLightbox) {
-        window.openLightbox(card);
-      }
+      handleCardAction(card);
     });
 
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        if (window.openLightbox) {
-          window.openLightbox(card);
-        }
+        handleCardAction(card);
       }
     });
   });
