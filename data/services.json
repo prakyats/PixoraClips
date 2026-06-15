@@ -19,12 +19,5 @@
     "title": "Social Media Management",
     "description": "Content distribution, growth strategy, community engagement, and platform management to capture attention.",
     "icon": "social"
-  },
-  {
-    "id": "marketing",
-    "num": "04",
-    "title": "Performance Marketing",
-    "description": "Lead generation, paid advertising, campaign management, and conversion optimization to drive measurable action.",
-    "icon": "ads"
   }
 ]
