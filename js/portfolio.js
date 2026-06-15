@@ -4,38 +4,18 @@
 
 // Icon map for core services
 const SERVICE_ICONS = {
+  strategy: `
+    <svg class="icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+      <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+    </svg>
+  `,
   reels: `
     <svg class="icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="6" y="9" width="28" height="30" rx="2" stroke="currentColor" stroke-width="2"/>
       <path d="M34 19L42 14V34L34 29" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
       <path d="M16 18L24 24L16 30V18Z" fill="currentColor"/>
-    </svg>
-  `,
-  drone: `
-    <svg class="icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2"/>
-      <path d="M24 18V8M24 30V40M30 24H40M18 24H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="24" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
-      <circle cx="24" cy="40" r="3" stroke="currentColor" stroke-width="2"/>
-      <circle cx="40" cy="24" r="3" stroke="currentColor" stroke-width="2"/>
-      <circle cx="8" cy="24" r="3" stroke="currentColor" stroke-width="2"/>
-    </svg>
-  `,
-  product: `
-    <svg class="icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="4" y="12" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
-      <circle cx="24" cy="26" r="8" stroke="currentColor" stroke-width="2"/>
-      <path d="M16 12L19 7H29L32 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-    </svg>
-  `,
-  event: `
-    <svg class="icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="6" y="8" width="36" height="34" rx="2" stroke="currentColor" stroke-width="2"/>
-      <path d="M6 18H42" stroke="currentColor" stroke-width="2"/>
-      <path d="M14 4V12M34 4V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="16" cy="28" r="2" fill="currentColor"/>
-      <circle cx="24" cy="28" r="2" fill="currentColor"/>
-      <circle cx="32" cy="28" r="2" fill="currentColor"/>
     </svg>
   `,
   social: `

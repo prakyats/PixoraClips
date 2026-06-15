@@ -1,0 +1,5 @@
+<svg viewBox="0 0 190 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15 2L27 6V16C27 22 22 26 15 29C8 26 3 22 3 16V6L15 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M15 8L18 17H12L15 8Z" fill="currentColor"/>
+  <text x="36" y="22" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="currentColor" letter-spacing="0.08em">LAMBORGHINI</text>
+</svg>

@@ -1,50 +1,62 @@
 [
   {
-    "id": "urban-roast",
-    "name": "URBAN ROAST CO.",
-    "logo": "/assets/logos/logo-urban-roast.svg",
-    "industry": "Food & Beverage"
-  },
-  {
-    "id": "verve-fitness",
-    "name": "VERVE FITNESS",
-    "logo": "/assets/logos/logo-verve-fitness.svg",
-    "industry": "Fitness"
-  },
-  {
-    "id": "nova-techwear",
-    "name": "NOVA TECHWEAR",
-    "logo": "/assets/logos/logo-nova-techwear.svg",
-    "industry": "Fashion"
-  },
-  {
-    "id": "shoreline-resorts",
-    "name": "SHORELINE RESORTS",
-    "logo": "/assets/logos/logo-shoreline-resorts.svg",
-    "industry": "Hospitality"
-  },
-  {
-    "id": "lume-skincare",
-    "name": "LUME SKINCARE",
-    "logo": "/assets/logos/logo-lume-skincare.svg",
-    "industry": "Skincare"
-  },
-  {
-    "id": "atlas-properties",
-    "name": "ATLAS PROPERTIES",
-    "logo": "/assets/logos/logo-atlas-properties.svg",
+    "id": "yamuna",
+    "name": "Yamuna",
+    "logo": "/assets/logos/logo-yamuna.svg",
     "industry": "Real Estate"
   },
   {
-    "id": "pulse-studios",
-    "name": "PULSE STUDIOS",
-    "logo": "/assets/logos/logo-pulse-studios.svg",
-    "industry": "Events"
+    "id": "sky-city",
+    "name": "Sky City",
+    "logo": "/assets/logos/logo-sky-city.svg",
+    "industry": "Hospitality"
   },
   {
-    "id": "crafted-co",
-    "name": "CRAFTED & CO.",
-    "logo": "/assets/logos/logo-crafted-co.svg",
-    "industry": "Product"
+    "id": "24-carat",
+    "name": "24 Carat",
+    "logo": "/assets/logos/logo-24-carat.svg",
+    "industry": "Lifestyle"
+  },
+  {
+    "id": "frankfinn",
+    "name": "Frankfinn",
+    "logo": "/assets/logos/logo-frankfinn.svg",
+    "industry": "Education"
+  },
+  {
+    "id": "le-sparrow",
+    "name": "Le Sparrow",
+    "logo": "/assets/logos/logo-le-sparrow.svg",
+    "industry": "Beauty"
+  },
+  {
+    "id": "f-salon",
+    "name": "F Salon",
+    "logo": "/assets/logos/logo-f-salon.svg",
+    "industry": "Beauty"
+  },
+  {
+    "id": "mercedes-benz",
+    "name": "Mercedes-Benz",
+    "logo": "/assets/logos/logo-mercedes-benz.svg",
+    "industry": "Automotive"
+  },
+  {
+    "id": "lamborghini",
+    "name": "Lamborghini",
+    "logo": "/assets/logos/logo-lamborghini.svg",
+    "industry": "Automotive"
+  },
+  {
+    "id": "audi",
+    "name": "Audi",
+    "logo": "/assets/logos/logo-audi.svg",
+    "industry": "Automotive"
+  },
+  {
+    "id": "mg-select",
+    "name": "MG Select",
+    "logo": "/assets/logos/logo-mg-select.svg",
+    "industry": "Automotive"
   }
 ]

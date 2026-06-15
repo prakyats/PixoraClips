@@ -1,0 +1,5 @@
+<svg viewBox="0 0 210 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="15" cy="15" r="13" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M15 15L15 2.5M15 15L4.5 21M15 15L25.5 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="36" y="22" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="currentColor" letter-spacing="0.08em">MERCEDES-BENZ</text>
+</svg>

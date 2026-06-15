@@ -1,44 +1,30 @@
 [
   {
-    "id": "reels",
+    "id": "strategy",
     "num": "01",
-    "title": "Reel Production",
-    "description": "Short-form vertical video built for retention, shares, and algorithm reach.",
+    "title": "Brand Strategy",
+    "description": "Positioning, campaign planning, and content strategy designed to make your business a brand people remember.",
+    "icon": "strategy"
+  },
+  {
+    "id": "production",
+    "num": "02",
+    "title": "Content Production",
+    "description": "Premium reels, commercial films, drone cinematography, photography, and trend-driven content that builds demand.",
     "icon": "reels"
   },
   {
-    "id": "drone",
-    "num": "02",
-    "title": "Drone Videography",
-    "description": "Cinematic aerial footage that adds scale and perspective to every project.",
-    "icon": "drone"
-  },
-  {
-    "id": "product",
-    "num": "03",
-    "title": "Product Photography",
-    "description": "Clean, premium imagery that makes products look as good as they perform.",
-    "icon": "product"
-  },
-  {
-    "id": "event",
-    "num": "04",
-    "title": "Event Coverage",
-    "description": "Full documentation of launches, activations, and brand moments — captured live.",
-    "icon": "event"
-  },
-  {
     "id": "social",
-    "num": "05",
+    "num": "03",
     "title": "Social Media Management",
-    "description": "Consistent, on-brand presence across platforms — planned, posted, and optimized.",
+    "description": "Content distribution, growth strategy, community engagement, and platform management to capture attention.",
     "icon": "social"
   },
   {
-    "id": "ads",
-    "num": "06",
-    "title": "Paid Advertising",
-    "description": "Performance-driven campaigns across Meta and Google, built to convert.",
+    "id": "marketing",
+    "num": "04",
+    "title": "Performance Marketing",
+    "description": "Lead generation, paid advertising, campaign management, and conversion optimization to drive measurable action.",
     "icon": "ads"
   }
 ]

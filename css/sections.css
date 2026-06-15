@@ -185,7 +185,7 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  padding-top: 140px;
+  padding-top: 80px;
   padding-bottom: var(--space-xl);
   position: relative;
 }
@@ -193,7 +193,7 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 85vh;
-    padding-top: 90px;
+    padding-top: 60px;
     padding-bottom: var(--space-md);
   }
 }
@@ -362,6 +362,64 @@
   .credibility-logos svg {
     height: 16px;
   }
+}
+
+/* ============ WHAT WE ACTUALLY DO ============ */
+.demand-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .demand-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .demand-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.demand-card {
+  background: var(--bg-0);
+  border: 1px solid var(--line-soft);
+  padding: var(--space-xl) var(--space-md);
+  border-radius: var(--border-radius-md);
+  transition: border-color var(--transition-normal), background var(--transition-normal);
+  position: relative;
+}
+
+.demand-card:hover {
+  border-color: var(--accent-red);
+  background: #0D0606;
+}
+
+.demand-card .step-num {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  margin-bottom: var(--space-sm);
+  display: block;
+  letter-spacing: 0.05em;
+}
+
+.demand-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-sm);
+  color: var(--text-main);
+}
+
+.demand-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* ============ ABOUT ============ */

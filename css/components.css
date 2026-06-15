@@ -381,34 +381,38 @@
   font-weight: 600;
   font-size: 1.3rem;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.32);
+  color: #FFFFFF;
   white-space: nowrap;
-  transition: color var(--transition-fast);
+  opacity: 0.35;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
 }
 
 .marquee-track .client:hover {
+  opacity: 1;
   color: var(--accent-red);
 }
 
 .marquee-track svg {
   height: 24px;
   fill: currentColor;
-  opacity: 0.5;
-  transition: opacity var(--transition-fast), fill var(--transition-fast);
+  transition: fill var(--transition-fast);
 }
 
 .marquee-track .client:hover svg {
-  opacity: 1;
   fill: var(--accent-red);
 }
 
 /* ============ CONCENTRIC RINGS (ambient signature) ============ */
 .ring-field {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+  position: absolute !important;
+  inset: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  display: block !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .ring-field svg {
@@ -416,6 +420,7 @@
   opacity: 0.5;
 }
 
+.ring-field.hero svg,
 .ring-field.ring-field-hero svg {
   top: 50%;
   left: 50%;
