@@ -29,7 +29,17 @@ export function initAnimations() {
   try {
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    // Split headline by lines
+    // 1. Fade-in eyebrow
+    const heroEyebrow = document.querySelector('.hero .eyebrow');
+    if (heroEyebrow) {
+      heroTl.from(heroEyebrow, {
+        opacity: 0,
+        y: -20,
+        duration: 0.6
+      });
+    }
+
+    // 2. Split headline by lines
     const headline = document.querySelector('.hero h1');
     if (headline && SplitType) {
       const splitText = new SplitType(headline, { types: 'lines', tagName: 'span' });
@@ -48,18 +58,18 @@ export function initAnimations() {
         opacity: 0,
         duration: 0.8,
         stagger: 0.1,
-      });
+      }, '-=0.3');
     } else if (headline) {
       // Fallback if SplitType fails
       heroTl.from(headline, {
         opacity: 0,
         y: 40,
         duration: 0.8
-      });
+      }, '-=0.3');
     }
 
-    // Fade-in subheading
-    const heroSub = document.querySelector('.hero p');
+    // 3. Fade-in subheading
+    const heroSub = document.querySelector('.hero #hero-subheading');
     if (heroSub) {
       heroTl.from(heroSub, {
         opacity: 0,
@@ -68,7 +78,7 @@ export function initAnimations() {
       }, '-=0.4'); // Start slightly before headline finishes
     }
 
-    // Sequential CTA buttons reveal
+    // 4. Sequential CTA buttons reveal
     const heroActions = document.querySelector('.hero-actions');
     if (heroActions) {
       const buttons = heroActions.querySelectorAll('.btn');
@@ -80,7 +90,7 @@ export function initAnimations() {
       }, '-=0.3');
     }
 
-    // Fade-in credibility strip
+    // 5. Fade-in credibility strip
     const credStrip = document.querySelector('.credibility-strip');
     if (credStrip) {
       heroTl.from(credStrip, {

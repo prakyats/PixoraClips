@@ -44,6 +44,10 @@
   display: block;
 }
 
+.split-line .line {
+  display: inline-block !important;
+}
+
 /* Ensure no transitions are applied when users request reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal-fallback {

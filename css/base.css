@@ -9,6 +9,7 @@ html {
   /* Scroll behavior is handled by Lenis when active, native fallback here */
   scroll-behavior: smooth;
   height: auto;
+  overflow-x: hidden;
 }
 
 html.lenis {
@@ -93,6 +94,7 @@ textarea:focus-visible,
 .section-pad {
   padding: var(--space-3xl) 0;
   position: relative;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
