@@ -653,6 +653,13 @@
   background: rgba(200, 16, 46, 0.08);
 }
 
+/* Hide back/close buttons on mobile — swipe-back gesture handles closing via popstate */
+@media (max-width: 768px) {
+  .lightbox-topbar {
+    display: none;
+  }
+}
+
 /* Disable animations for prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .ring-field svg {
