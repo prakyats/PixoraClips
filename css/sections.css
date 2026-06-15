@@ -36,21 +36,19 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: 0.04em;
-  color: var(--text-main);
   z-index: 101;
 }
 
-.logo-mark {
-  flex-shrink: 0;
+.logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
 }
 
-.logo span {
-  color: var(--accent-red);
+@media (max-width: 768px) {
+  .logo-img {
+    height: 24px;
+  }
 }
 
 .nav-links {
