@@ -185,16 +185,17 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  padding-top: 80px;
-  padding-bottom: var(--space-xl);
+  padding-top: 100px;
+  padding-bottom: 120px;
   position: relative;
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 85vh;
-    padding-top: 60px;
-    padding-bottom: var(--space-md);
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: 90px;
+    padding-bottom: 110px;
   }
 }
 
