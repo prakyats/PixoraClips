@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pixoraclips.com/sitemap.xml
+Sitemap: https://pixoraclips.vercel.app/sitemap.xml
