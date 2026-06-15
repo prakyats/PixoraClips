@@ -106,4 +106,34 @@ export function initNavigation() {
       observer.observe(section);
     }
   });
+
+  // 4. Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        
+        if (window.lenisInstance) {
+          window.lenisInstance.scrollTo(targetElement, {
+            offset: -80, // Offset for sticky navbar height
+            duration: 1.2
+          });
+        } else {
+          // Native smooth scroll fallback with offset
+          const rect = targetElement.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetTop = rect.top + scrollTop - 80;
+          window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
 }
+

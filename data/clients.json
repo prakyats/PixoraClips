@@ -20,7 +20,7 @@
   {
     "id": "frankfinn",
     "name": "Frankfinn",
-    "logo": "/assets/logos/porsche.svg",
+    "logo": "/assets/logos/logo-frankfinn.svg",
     "industry": "Education"
   },
   {
@@ -31,9 +31,9 @@
   },
   {
     "id": "f-salon",
-    "name": "F Salon",
-    "logo": "/assets/logos/logo-f-salon.svg",
-    "industry": "Beauty"
+    "name": "Fashion TV",
+    "logo": "/assets/logos/logo-fashiontv.svg",
+    "industry": "Lifestyle"
   },
   {
     "id": "mercedes-benz",
@@ -44,7 +44,7 @@
   {
     "id": "lamborghini",
     "name": "Lamborghini",
-    "logo": "/assets/logos/logo-lamborghini.svg",
+    "logo": "/assets/logos/lambo.svg",
     "industry": "Automotive"
   },
   {
@@ -57,6 +57,11 @@
     "id": "mg-select",
     "name": "MG Select",
     "logo": "/assets/logos/logo-mg-select.svg",
+    "industry": "Automotive"
+  },{
+    "id": "porsche",
+    "name": "Porsche",
+    "logo": "/assets/logos/porsche.svg",
     "industry": "Automotive"
   }
 ]

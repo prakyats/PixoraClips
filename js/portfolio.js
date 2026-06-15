@@ -103,14 +103,13 @@ export async function initPortfolio() {
       clientMarquee.innerHTML = '';
 
       // We need to render the brand SVGs inlined
-      const clientCards = [];
-
-      for (const client of clients) {
+      // Fetch all SVGs inline concurrently (parallel request resolution)
+      const clientCards = await Promise.all(clients.map(async (client) => {
         const clientSpan = document.createElement('span');
         clientSpan.className = 'client';
-        clientSpan.textContent = client.name + ' ';
+        clientSpan.setAttribute('aria-label', client.name);
+        clientSpan.setAttribute('role', 'img');
 
-        // Fetch SVG inline
         try {
           const svgRes = await fetch(client.logo);
           if (svgRes.ok) {
@@ -121,8 +120,8 @@ export async function initPortfolio() {
           console.warn(`Could not inline logo for ${client.name}:`, svgErr);
         }
 
-        clientCards.push(clientSpan);
-      }
+        return clientSpan;
+      }));
 
       // Append original list
       clientCards.forEach(c => clientMarquee.appendChild(c));

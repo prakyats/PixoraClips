@@ -1,0 +1,10 @@
+<svg viewBox="0 0 170 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clean, bold diamond outline (fill="none" to prevent CSS inheritance issues) -->
+  <polygon points="16,2.5 30,17.5 16,32.5 2,17.5" stroke="currentColor" stroke-width="2.4" fill="none"/>
+  <!-- Stylized lowercase 'f' (fill="none" explicitly set) -->
+  <path d="M13.5 25V13.5C13.5 11.0 14.8 9.5 17.5 9.5H19.5 M10.5 15H17.0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  <!-- Dot next to 'f' -->
+  <circle cx="21" cy="15" r="1.5" fill="currentColor"/>
+  <!-- Crisp Serif Wordmark -->
+  <text x="40" y="22.5" font-family="'Georgia', 'Times New Roman', serif" font-size="15" font-weight="bold" fill="currentColor" letter-spacing="0.02em">fashiontv</text>
+</svg>

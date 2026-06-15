@@ -216,6 +216,16 @@
   pointer-events: none;
 }
 
+.hero-blur-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* Safari support */
+  background: rgba(5, 5, 5, 0.15); /* very subtle dark tint to boost readability */
+  pointer-events: none;
+}
+
 /* Dynamic Hero Video Layer */
 .hero-video-container {
   position: absolute;
