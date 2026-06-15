@@ -36,9 +36,8 @@ const SERVICE_ICONS = {
 export async function initPortfolio() {
   // 1. Load Portfolio Projects
   const videoGrid = document.getElementById('videoGrid');
-  const photoGrid = document.getElementById('photoGrid');
 
-  if (videoGrid && photoGrid) {
+  if (videoGrid) {
     try {
       const response = await fetch('/data/portfolio.json');
       if (!response.ok) throw new Error('Failed to fetch portfolio data');
@@ -47,15 +46,12 @@ export async function initPortfolio() {
 
       // Clear static placeholders
       videoGrid.innerHTML = '';
-      photoGrid.innerHTML = '';
 
+      // Photos tab is disabled — only render video items
       projects.forEach(project => {
+        if (project.type !== 'video') return;
         const card = createProjectCard(project);
-        if (project.type === 'video') {
-          videoGrid.appendChild(card);
-        } else if (project.type === 'photo') {
-          photoGrid.appendChild(card);
-        }
+        videoGrid.appendChild(card);
       });
 
       attachCardEvents();

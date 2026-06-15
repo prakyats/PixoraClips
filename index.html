@@ -320,23 +320,9 @@
         </div>
 
         <div data-reveal>
-          <div class="tabs" role="tablist" aria-label="Portfolio Media Type">
-            <button class="tab-btn active" id="tabVideos" role="tab" aria-selected="true" aria-controls="panelVideos"
-              tabindex="0">Videos</button>
-            <button class="tab-btn" id="tabPhotos" role="tab" aria-selected="false" aria-controls="panelPhotos"
-              tabindex="-1">Photos</button>
-          </div>
-
-          <!-- VIDEOS TAB PANEL -->
-          <div class="tab-panel active" id="panelVideos" role="tabpanel" aria-labelledby="tabVideos">
+          <!-- VIDEOS TAB PANEL (Photos tab disabled) -->
+          <div class="tab-panel active" id="panelVideos" role="tabpanel">
             <div class="portfolio-grid videos" id="videoGrid">
-              <!-- Dynamically populated from data/portfolio.json -->
-            </div>
-          </div>
-
-          <!-- PHOTOS TAB PANEL -->
-          <div class="tab-panel" id="panelPhotos" role="tabpanel" aria-labelledby="tabPhotos" hidden="true">
-            <div class="portfolio-grid photos" id="photoGrid">
               <!-- Dynamically populated from data/portfolio.json -->
             </div>
           </div>
