@@ -2,11 +2,13 @@
   {
     "id": "video-1",
     "type": "video",
-    "title": "AMG Track Dynamics",
-    "category": "Mercedes-Benz",
-    "client": "Mercedes-Benz",
-    "services": ["Content Production"],
-    "objective": "Capturing the track-tuned dynamics of the AMG line with high-intensity, cinematic reels.",
+    "title": "YSC Drive",
+    "category": "Automotive",
+    "client": "YSC",
+    "services": [
+      "Content Production",
+      "Performance Marketing"
+    ],
     "source": "instagram",
     "url": "https://www.instagram.com/reel/DYw2zErSivv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781540915/yamuna_event_reel_final_logo_1_ebgn4h.jpg"
@@ -14,11 +16,12 @@
   {
     "id": "video-2",
     "type": "video",
-    "title": "Sky City Grand Opening",
-    "category": "Sky City",
-    "client": "Sky City",
-    "services": ["Content Production", "Performance Marketing"],
-    "objective": "Generating 500+ qualified event bookings for the hotel grand opening through teaser campaigns.",
+    "title": "LaMostra 2025",
+    "category": "Automotive",
+    "client": "LaMostra",
+    "services": [
+      "Content Production"
+    ],
     "source": "instagram",
     "url": "https://www.instagram.com/reel/DShsrxPFlUu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781540865/Screenshot_2026-06-15_215710_ilw3us.png"
@@ -26,11 +29,13 @@
   {
     "id": "video-3",
     "type": "video",
-    "title": "Yamuna Luxury Residences",
-    "category": "Yamuna",
-    "client": "Yamuna",
-    "services": ["Brand Strategy", "Content Production"],
-    "objective": "Attracting international high-net-worth buyers through cinematic property stories.",
+    "title": "Spark Coaching",
+    "category": "Talking Head",
+    "client": "Spark Coaching",
+    "services": [
+      "Brand Strategy",
+      "Content Production"
+    ],
     "source": "instagram",
     "url": "https://www.instagram.com/reel/DVGyksOjcIW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781541034/Screenshot_2026-06-15_220012_oinasl.png"
@@ -39,10 +44,12 @@
     "id": "video-4",
     "type": "video",
     "title": "YSC",
-    "category": "Frankfinn",
-    "client": "Frankfinn",
-    "services": ["Brand Strategy", "Social Media"],
-    "objective": "Increasing course enrolment inquiries through emotionally resonant graduate testimonial films.",
+    "category": "Real-Estate",
+    "client": "YSC",
+    "services": [
+      "Brand Strategy",
+      "Social Media"
+    ],
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781541559/VID-20260615-WA0013_llerwn.jpg",
     "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539988/YSC_yefj6s.mp4"
@@ -50,11 +57,13 @@
   {
     "id": "video-5",
     "type": "video",
-    "title": "Prop",
-    "category": "Lamborghini",
-    "client": "Lamborghini",
-    "services": ["Brand Strategy", "Content Production"],
-    "objective": "Building demand and exclusive brand desire through atmospheric, high-impact reveal videos.",
+    "title": "Scylla",
+    "category": "Ambiance",
+    "client": "Scylla",
+    "services": [
+      "Brand Strategy",
+      "Content Production"
+    ],
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781541559/VID-20260615-WA0009_zt3deh.jpg",
     "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539988/prop_nahamb.mp4"
@@ -62,11 +71,13 @@
   {
     "id": "video-6",
     "type": "video",
-    "title": "Le Sparrow Glow Campaign",
-    "category": "Le Sparrow",
+    "title": "Customer reviews",
+    "category": "Talking Head",
     "client": "Le Sparrow",
-    "services": ["Content Production", "Performance Marketing"],
-    "objective": "Driving direct-to-consumer sales for a new organic facial glow serum.",
+    "services": [
+      "Content Production",
+      "Social Media"
+    ],
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781541562/VID-20260615-WA0010_gxxlc8.jpg",
     "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539982/Lesparrow2_udqxdh.mp4"
@@ -74,11 +85,12 @@
   {
     "id": "video-7",
     "type": "video",
-    "title": "LEsparrow3",
-    "category": "Audi",
+    "title": "Client Engagement",
+    "category": "Talking Head",
     "client": "Audi",
-    "services": ["Performance Marketing"],
-    "objective": "Generating qualified test drive leads for the brand's premium electric SUV range.",
+    "services": [
+      "Performance Marketing"
+    ],
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781541560/VID-20260615-WA0006_d9sbn8.jpg",
     "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539984/le3_dbpbyk.mp4"
@@ -86,13 +98,15 @@
   {
     "id": "video-8",
     "type": "video",
-    "title": "Scylla",
-    "category": "F Salon",
-    "client": "F Salon",
-    "services": ["Social Media", "Content Production"],
-    "objective": "Redesigning the salon's grid aesthetic and organic reach to attract premium local clients.",
+    "title": "Property walkthrough",
+    "category": "Real-Estate",
+    "client": "Scylla",
+    "services": [
+      "Social Media",
+      "Content Production"
+    ],
     "source": "cloudinary",
-    "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0241_1.jpg",
+    "thumbnail": "https://res.cloudinary.com/drzbbbncs/image/upload/v1781544135/VID-20260615-WA0011_wg5foq.jpg",
     "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539984/Scylla_mfytys.mp4"
   },
   {
@@ -101,7 +115,9 @@
     "title": "Le Sparrow Product Minimal",
     "category": "Le Sparrow",
     "client": "Le Sparrow",
-    "services": ["Content Production"],
+    "services": [
+      "Content Production"
+    ],
     "objective": "Clean, premium studio shots highlighting natural ingredients and texture.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0101.jpg"
@@ -112,7 +128,9 @@
     "title": "Sky City Rooftop Dining",
     "category": "Sky City",
     "client": "Sky City",
-    "services": ["Content Production"],
+    "services": [
+      "Content Production"
+    ],
     "objective": "Capturing the cozy, rustic ambient lighting and seating areas for press releases.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Food Lobster.jpg"
@@ -123,7 +141,10 @@
     "title": "MG Select Prestige Drop",
     "category": "MG Select",
     "client": "MG Select",
-    "services": ["Brand Strategy", "Content Production"],
+    "services": [
+      "Brand Strategy",
+      "Content Production"
+    ],
     "objective": "High-contrast urban lookbook shooting showing apparel in functional environments.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0301.jpg"
@@ -134,7 +155,9 @@
     "title": "Yamuna Penthouse Suite",
     "category": "Yamuna",
     "client": "Yamuna",
-    "services": ["Content Production"],
+    "services": [
+      "Content Production"
+    ],
     "objective": "High-resolution architectural shots showcasing sea-view suites and premium amenities.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Interior Lobby 1.jpg"
@@ -145,7 +168,9 @@
     "title": "Frankfinn Corporate Summit",
     "category": "Frankfinn",
     "client": "Frankfinn",
-    "services": ["Content Production"],
+    "services": [
+      "Content Production"
+    ],
     "objective": "Capturing key speakers and dynamic networking moments at a major brand summit.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKK_7945.jpg"
@@ -156,7 +181,9 @@
     "title": "24 Carat Timepiece Macro",
     "category": "24 Carat",
     "client": "24 Carat",
-    "services": ["Content Production"],
+    "services": [
+      "Content Production"
+    ],
     "objective": "Macro shots focusing on premium materials, metallic finishes, and fine watch textures.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_7955.jpg"
@@ -167,7 +194,9 @@
     "title": "Le Sparrow Glow Texture",
     "category": "Le Sparrow",
     "client": "Le Sparrow",
-    "services": ["Content Production"],
+    "services": [
+      "Content Production"
+    ],
     "objective": "Close-up texture macro detail shots illustrating serum viscosity and skin application.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Food Fish.jpg"
@@ -178,7 +207,9 @@
     "title": "Audi e-tron Studio Focus",
     "category": "Audi",
     "client": "Audi",
-    "services": ["Content Production"],
+    "services": [
+      "Content Production"
+    ],
     "objective": "High-contrast studio lighting highlighting the aerodynamic body shapes and brand prestige.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/Food Lobster 2.jpg"

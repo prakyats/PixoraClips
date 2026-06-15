@@ -75,16 +75,16 @@ export async function initPortfolio() {
       services.forEach(service => {
         const serviceCard = document.createElement('div');
         serviceCard.className = 'service-card';
-        
+
         const iconSvg = SERVICE_ICONS[service.icon] || '';
-        
+
         serviceCard.innerHTML = `
           <span class="service-num">${service.num}</span>
           ${iconSvg}
           <h3>${service.title}</h3>
           <p>${service.description}</p>
         `;
-        
+
         servicesGrid.appendChild(serviceCard);
       });
     } catch (err) {
@@ -146,11 +146,11 @@ function getCloudinaryResponsiveSrcset(url) {
   const prefix = match[1];
   const version = match[2] || '';
   const publicIdWithExt = match[3];
-  
+
   const sizes = [400, 800, 1200];
   const srcsetString = sizes.map(w => `${prefix}f_auto,q_auto,w_${w}/${version}${publicIdWithExt} ${w}w`).join(', ');
   const fallbackSrc = `${prefix}f_auto,q_auto,w_800/${version}${publicIdWithExt}`;
-  
+
   return { srcset: srcsetString, src: fallbackSrc };
 }
 
@@ -178,32 +178,32 @@ function createProjectCard(project) {
   const isVideo = project.type === 'video';
   const card = document.createElement('div');
   const source = project.source || 'cloudinary';
-  
+
   card.className = `portfolio-card ${source}-card ${isVideo ? 'video-aspect' : 'photo-aspect'}`;
   card.setAttribute('tabindex', '0');
   card.setAttribute('role', 'button');
-  
+
   // Set accessibility labels
   if (source === 'instagram') {
     card.setAttribute('aria-label', `View ${project.title} on Instagram`);
   } else {
     card.setAttribute('aria-label', `Open ${project.title} ${isVideo ? 'video' : 'photo'}`);
   }
-  
+
   card.dataset.id = project.id;
   card.dataset.type = project.type;
   card.dataset.source = source;
   card.dataset.title = project.title;
   card.dataset.cat = project.category;
-  
+
   // Resolve image paths and responsive rules
   let imgSrc = '';
   let srcsetAttr = '';
   const baseImg = project.thumbnail;
-  
+
   const isCloudinary = source === 'cloudinary';
   const isCloudinaryUrl = baseImg.startsWith('http') && baseImg.includes('cloudinary.com');
-  
+
   if (isCloudinary && isCloudinaryUrl) {
     const cloudinaryData = getCloudinaryResponsiveSrcset(baseImg);
     if (cloudinaryData) {
@@ -217,7 +217,7 @@ function createProjectCard(project) {
     imgSrc = hasExtension ? baseImg : `${baseImg}-800.webp`;
     srcsetAttr = hasExtension ? `${baseImg}` : `${baseImg}-400.webp 400w, ${baseImg}-800.webp 800w, ${baseImg}-1200.webp 1200w`;
   }
-  
+
   if (source === 'instagram') {
     card.dataset.url = project.url;
   } else {
@@ -233,10 +233,10 @@ function createProjectCard(project) {
       }
     }
   }
-  
+
   const widthAttr = isVideo ? "360" : "450";
   const heightAttr = isVideo ? "640" : "600";
-  
+
   let cardHtml = `
     <div class="thumb-wrapper">
       <img 
@@ -278,7 +278,6 @@ function createProjectCard(project) {
         <div class="label">${project.title}</div>
         <div class="objective">
           <p style="color: var(--accent-red); margin-bottom: 4px; font-weight: 600; font-size: 0.7rem;">${servicesString}</p>
-          ${project.objective}
         </div>
       </div>
     </div>
@@ -290,7 +289,7 @@ function createProjectCard(project) {
 
 function initLazyLoading() {
   const lazyImages = document.querySelectorAll('.lazy-thumb');
-  
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -310,7 +309,7 @@ function initLazyLoading() {
       rootMargin: '100px 0px',
       threshold: 0.01
     });
-    
+
     lazyImages.forEach(img => observer.observe(img));
   } else {
     // Fallback if IntersectionObserver is unsupported
@@ -336,7 +335,7 @@ function handleCardAction(card) {
 
 function attachCardEvents() {
   const cards = document.querySelectorAll('.portfolio-card');
-  
+
   cards.forEach(card => {
     card.addEventListener('click', () => {
       handleCardAction(card);
