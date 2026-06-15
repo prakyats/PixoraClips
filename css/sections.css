@@ -139,28 +139,34 @@
 
 @media (max-width: 879px) {
   .nav-links {
-    position: fixed;
-    inset: 0 0 0 20%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 34px;
-    padding: 0 var(--space-xl);
+    gap: 24px;
+    padding: var(--space-md) var(--space-md) var(--space-lg);
     background: rgba(5, 5, 5, 0.98);
     backdrop-filter: blur(20px);
-    border-left: 1px solid var(--line-soft);
-    transform: translateX(100%);
+    border-bottom: 1px solid var(--line-soft);
+    transform: translateY(-20px);
+    opacity: 0;
     visibility: hidden;
-    transition: transform 0.45s var(--ease-out-expo), visibility 0.45s var(--ease-out-expo);
+    transition: transform 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo), visibility 0.4s var(--ease-out-expo);
   }
 
   .nav-links.open {
-    transform: translateX(0);
+    transform: translateY(0);
+    opacity: 1;
     visibility: visible;
   }
 
   .nav-links a {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    width: 100%;
+    padding: 6px 0;
   }
 }
 
