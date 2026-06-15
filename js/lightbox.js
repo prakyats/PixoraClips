@@ -11,11 +11,13 @@ export function initLightbox() {
   const lightboxFrame = document.getElementById('lightboxFrame');
   const lightboxCaption = document.getElementById('lightboxCaption');
   const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxBack = document.getElementById('lightboxBack');
 
   if (!lightbox || !lightboxFrame || !lightboxCaption || !lightboxClose) return;
 
   let lastFocusedElement = null;
   let savedScrollY = 0;
+  let historyStatePushed = false;
 
   // 1. Focus Trap
   const focusableQuery = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
@@ -95,6 +97,10 @@ export function initLightbox() {
     // Caption
     lightboxCaption.textContent = cat ? `${title} — ${cat}` : title;
 
+    // Push a history entry so the back button intercepts here
+    historyStatePushed = true;
+    history.pushState({ lightboxOpen: true }, '');
+
     // Show modal with scale animation trigger
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
@@ -152,6 +158,12 @@ export function initLightbox() {
       if (lastFocusedElement) lastFocusedElement.focus();
     }, 200);
 
+    // If we pushed a history state, pop it so back-button history stays clean
+    if (historyStatePushed) {
+      historyStatePushed = false;
+      history.back();
+    }
+
     // Remove keyboard focus trap (fixed bug: was document.remove)
     document.removeEventListener('keydown', trapFocus);
   }
@@ -159,11 +171,24 @@ export function initLightbox() {
   // 5. Event listeners
   lightboxClose.addEventListener('click', closeLightbox);
 
+  // Back arrow button — same as close
+  if (lightboxBack) {
+    lightboxBack.addEventListener('click', closeLightbox);
+  }
+
   lightbox.addEventListener('click', e => {
     if (e.target === lightbox) closeLightbox();
   });
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Intercept browser back button while lightbox is open
+  window.addEventListener('popstate', e => {
+    if (lightbox.classList.contains('open')) {
+      historyStatePushed = false; // state already consumed by browser
+      closeLightbox();
+    }
   });
 }

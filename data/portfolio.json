@@ -38,26 +38,26 @@
   {
     "id": "video-4",
     "type": "video",
-    "title": "Frankfinn Career Stories",
+    "title": "YSC",
     "category": "Frankfinn",
     "client": "Frankfinn",
     "services": ["Brand Strategy", "Social Media"],
     "objective": "Increasing course enrolment inquiries through emotionally resonant graduate testimonial films.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/AKH_5129_1.jpg",
-    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-fitness.mp4"
+    "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539988/YSC_yefj6s.mp4"
   },
   {
     "id": "video-5",
     "type": "video",
-    "title": "Lamborghini Revuelto Launch",
+    "title": "Prop",
     "category": "Lamborghini",
     "client": "Lamborghini",
     "services": ["Brand Strategy", "Content Production"],
     "objective": "Building demand and exclusive brand desire through atmospheric, high-impact reveal videos.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_9763.jpg",
-    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-tech.mp4"
+    "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539988/prop_nahamb.mp4"
   },
   {
     "id": "video-6",
@@ -69,31 +69,31 @@
     "objective": "Driving direct-to-consumer sales for a new organic facial glow serum.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0241.jpg",
-    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-event.mp4"
+    "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539982/Lesparrow2_udqxdh.mp4"
   },
   {
     "id": "video-7",
     "type": "video",
-    "title": "Audi e-tron Electric Journey",
+    "title": "LEsparrow3",
     "category": "Audi",
     "client": "Audi",
     "services": ["Performance Marketing"],
     "objective": "Generating qualified test drive leads for the brand's premium electric SUV range.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_1916.jpg",
-    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-estate.mp4"
+    "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539984/le3_dbpbyk.mp4"
   },
   {
     "id": "video-8",
     "type": "video",
-    "title": "F Salon Grid Relaunch",
+    "title": "Scylla",
     "category": "F Salon",
     "client": "F Salon",
     "services": ["Social Media", "Content Production"],
     "objective": "Redesigning the salon's grid aesthetic and organic reach to attract premium local clients.",
     "source": "cloudinary",
     "thumbnail": "https://res.cloudinary.com/pixoraclips/image/upload/v1718536800/thumbnails/CKZ_0241_1.jpg",
-    "video": "https://res.cloudinary.com/pixoraclips/video/upload/v1718536800/videos/reel-beauty.mp4"
+    "video": "https://res.cloudinary.com/drzbbbncs/video/upload/v1781539984/Scylla_mfytys.mp4"
   },
   {
     "id": "photo-1",

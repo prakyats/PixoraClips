@@ -448,8 +448,17 @@
   <!-- ============ DYNAMIC ACCESSIBLE LIGHTBOX ============ -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true"
     aria-label="Media Preview Modal">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close media preview modal">&times;</button>
     <div class="lightbox-inner">
+      <div class="lightbox-topbar">
+        <button class="lightbox-back" id="lightboxBack" aria-label="Go back and close media preview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5"/>
+            <path d="M12 5l-7 7 7 7"/>
+          </svg>
+          <span>Back</span>
+        </button>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close media preview modal">&times;</button>
+      </div>
       <div class="lightbox-frame" id="lightboxFrame"></div>
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
