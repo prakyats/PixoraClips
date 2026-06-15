@@ -155,17 +155,19 @@ function createProjectCard(project) {
   card.dataset.title = project.title;
   card.dataset.cat = project.category;
   
+  const baseImg = project.thumbnail;
+  const hasExtension = /\.(jpg|jpeg|png|webp|gif|svg|avif)(\?.*)?$/i.test(baseImg) || baseImg.startsWith('http') || baseImg.startsWith('//');
+  const imgSrc = hasExtension ? baseImg : `${baseImg}-800.webp`;
+  const srcsetAttr = hasExtension ? '' : `srcset="${baseImg}-400.webp 400w, ${baseImg}-800.webp 800w, ${baseImg}-1200.webp 1200w"`;
+
   if (isVideo) {
     card.dataset.video = project.video;
     if (project.video.includes('instagram.com') || project.video.includes('drive.google.com')) {
       card.dataset.embed = 'true';
     }
   } else {
-    card.dataset.hires = `${project.thumbnail}-1200.webp`;
+    card.dataset.hires = hasExtension ? baseImg : `${project.thumbnail}-1200.webp`;
   }
-
-  const baseImg = project.thumbnail;
-  const srcset = `${baseImg}-400.webp 400w, ${baseImg}-800.webp 800w, ${baseImg}-1200.webp 1200w`;
   
   const widthAttr = isVideo ? "360" : "450";
   const heightAttr = isVideo ? "640" : "600";
@@ -173,8 +175,8 @@ function createProjectCard(project) {
   let cardHtml = `
     <div class="thumb-wrapper">
       <img 
-        src="${baseImg}-800.webp" 
-        srcset="${srcset}" 
+        src="${imgSrc}" 
+        ${srcsetAttr} 
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
         loading="lazy" 
         decoding="async" 
