@@ -75,7 +75,7 @@ export function initAnimations() {
         opacity: 0,
         y: 20,
         duration: 0.6
-      }, '-=0.4'); // Start slightly before headline finishes
+      }); // Start exactly after headline finishes
     }
 
     // 4. Sequential CTA buttons reveal
@@ -85,9 +85,10 @@ export function initAnimations() {
       heroTl.from(buttons, {
         opacity: 0,
         y: 15,
+        scale: 0.95,
         duration: 0.5,
         stagger: 0.15
-      }, '-=0.3');
+      }, '+=0.15'); // Delay 0.15 seconds after subheading completes
     }
 
     // 5. Fade-in credibility strip

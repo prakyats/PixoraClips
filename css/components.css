@@ -8,10 +8,11 @@
   gap: 10px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 16px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 16px 30px;
+  height: 56px;
+  padding: 0 24px;
   border-radius: var(--border-radius-sm);
   border: 1px solid transparent;
   cursor: pointer;
@@ -21,6 +22,19 @@
               border-color 0.35s var(--ease-out-expo), 
               color 0.35s var(--ease-out-expo);
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
 .btn-primary {
@@ -417,7 +431,7 @@
 
 .ring-field svg {
   position: absolute;
-  opacity: 0.5;
+  opacity: 0.25;
 }
 
 .ring-field.hero svg,
