@@ -34,82 +34,69 @@ const SERVICE_ICONS = {
 };
 
 export async function initPortfolio() {
-  // 1. Load Portfolio Projects
   const videoGrid = document.getElementById('videoGrid');
+  const servicesGrid = document.getElementById('servicesGrid');
+  const clientMarquee = document.getElementById('clientMarquee');
 
+  // Fetch all data sources in parallel — avoids serial round-trip stalls
+  const [portfolioResult, servicesResult, clientsResult] = await Promise.allSettled([
+    videoGrid    ? fetch('/data/portfolio.json').then(r => { if (!r.ok) throw new Error('portfolio'); return r.json(); }) : Promise.resolve(null),
+    servicesGrid ? fetch('/data/services.json').then(r => { if (!r.ok) throw new Error('services');  return r.json(); }) : Promise.resolve(null),
+    clientMarquee ? fetch('/data/clients.json').then(r => { if (!r.ok) throw new Error('clients');   return r.json(); }) : Promise.resolve(null),
+  ]);
+
+  // 1. Render Portfolio Projects
   if (videoGrid) {
-    try {
-      const response = await fetch('/data/portfolio.json');
-      if (!response.ok) throw new Error('Failed to fetch portfolio data');
-
-      const projects = await response.json();
-
-      // Clear static placeholders
+    if (portfolioResult.status === 'fulfilled' && portfolioResult.value) {
+      const projects = portfolioResult.value;
       videoGrid.innerHTML = '';
-
-      // Photos tab is disabled — only render video items
       projects.forEach(project => {
         if (project.type !== 'video') return;
         const card = createProjectCard(project);
         videoGrid.appendChild(card);
       });
-
       attachCardEvents();
       initLazyLoading();
-    } catch (err) {
-      console.error('Error rendering portfolio:', err);
+    } else {
+      console.error('Error rendering portfolio:', portfolioResult.reason);
       videoGrid.innerHTML = '<p style="color:var(--accent-red); grid-column: 1/-1; text-align:center;">Failed to load portfolio items.</p>';
     }
   }
 
-  // 2. Load Services
-  const servicesGrid = document.getElementById('servicesGrid');
+  // 2. Render Services
   if (servicesGrid) {
-    try {
-      const response = await fetch('/data/services.json');
-      if (!response.ok) throw new Error('Failed to fetch services data');
-
-      const services = await response.json();
+    if (servicesResult.status === 'fulfilled' && servicesResult.value) {
+      const services = servicesResult.value;
       servicesGrid.innerHTML = '';
-
       services.forEach(service => {
         const serviceCard = document.createElement('div');
         serviceCard.className = 'service-card';
-
+        serviceCard.setAttribute('data-tilt', '');
         const iconSvg = SERVICE_ICONS[service.icon] || '';
-
         serviceCard.innerHTML = `
           <span class="service-num">${service.num}</span>
           ${iconSvg}
           <h3>${service.title}</h3>
           <p>${service.description}</p>
         `;
-
         servicesGrid.appendChild(serviceCard);
       });
-    } catch (err) {
-      console.error('Error rendering services:', err);
+    } else {
+      console.error('Error rendering services:', servicesResult.reason);
     }
   }
 
-  // 3. Load Client Marquee
-  const clientMarquee = document.getElementById('clientMarquee');
+  // 3. Render Client Marquee
   if (clientMarquee) {
-    try {
-      const response = await fetch('/data/clients.json');
-      if (!response.ok) throw new Error('Failed to fetch clients data');
-
-      const clients = await response.json();
+    if (clientsResult.status === 'fulfilled' && clientsResult.value) {
+      const clients = clientsResult.value;
       clientMarquee.innerHTML = '';
-
-      // We need to render the brand SVGs inlined
-      // Fetch all SVGs inline concurrently (parallel request resolution)
+      // Fetch all SVGs inline concurrently
       const clientCards = await Promise.all(clients.map(async (client) => {
         const clientSpan = document.createElement('span');
         clientSpan.className = 'client';
         clientSpan.setAttribute('aria-label', client.name);
         clientSpan.setAttribute('role', 'img');
-
         try {
           const svgRes = await fetch(client.logo);
           if (svgRes.ok) {
@@ -119,21 +106,16 @@ export async function initPortfolio() {
         } catch (svgErr) {
           console.warn(`Could not inline logo for ${client.name}:`, svgErr);
         }
-
         return clientSpan;
       }));
-
-      // Append original list
       clientCards.forEach(c => clientMarquee.appendChild(c));
-
       // Duplicate list for seamless infinite marquee loop
       clientCards.forEach(c => {
         const clone = c.cloneNode(true);
         clientMarquee.appendChild(clone);
       });
-
-    } catch (err) {
-      console.error('Error rendering client marquee:', err);
+    } else {
+      console.error('Error rendering client marquee:', clientsResult.reason);
     }
   }
 }

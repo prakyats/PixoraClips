@@ -2,11 +2,24 @@
  * main.js - Entry point for Pixora Clips
  */
 
+// ── CRITICAL: disable browser scroll-position restoration ──────────────────
+// Chrome/Firefox remember the scroll position across refreshes and restore it
+// AFTER JavaScript runs. GSAP ScrollTrigger initialises at scrollY = 0, sets
+// its scrub positions, then the browser silently jumps the scroll — leaving the
+// hero dark overlay at full opacity and heroContent invisible.
+// Forcing scrollY = 0 before anything else guarantees a clean slate every time.
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+// ──────────────────────────────────────────────────────────────────────────────
+
 import { initNavigation } from './navigation.js';
 import { initAnimations } from './animations.js';
 import { initTabs } from './tabs.js';
 import { initLightbox } from './lightbox.js';
 import { initPortfolio } from './portfolio.js';
+import { initCinematic } from './cinematic.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // 1. Initialize Content Rendering
@@ -23,6 +36,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 5. Initialize Lenis (Smooth Scroll) & GSAP animations
   initSmoothScrollAndAnimations();
+
+  // 6. Initialize the immersive cinematic interaction layer
+  initCinematic();
 });
 
 function initSmoothScrollAndAnimations() {
@@ -45,16 +61,29 @@ function initSmoothScrollAndAnimations() {
         infinite: false,
       });
 
-      // Connect Lenis to requestAnimationFrame loop
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+      if (window.gsap) {
+        // Drive Lenis inside GSAP's ticker so both always advance on the same frame.
+        // This eliminates the one-frame desync between Lenis scroll position and
+        // GSAP ScrollTrigger scrub updates that causes jitter on reverse scroll.
+        window.gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
 
-      // Connect Lenis scroll events to GSAP ScrollTrigger
-      if (window.ScrollTrigger) {
-        lenis.on('scroll', window.ScrollTrigger.update);
+        // Prevent GSAP from "catching up" accumulated time in a large jump after
+        // the tab is hidden/unhidden — that causes a visible position snap.
+        window.gsap.ticker.lagSmoothing(0);
+
+        // Still emit scroll events so ScrollTrigger.update() fires every frame.
+        if (window.ScrollTrigger) {
+          lenis.on('scroll', window.ScrollTrigger.update);
+        }
+      } else {
+        // GSAP not available — fall back to standalone rAF loop.
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
       }
 
       // Expose globally for lightbox lock purposes

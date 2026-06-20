@@ -1,0 +1,329 @@
+/* ============================================================
+   cinematic.css — Immersive scroll & interaction layer
+   Adds: letterbox load-in, scroll progress, custom cursor,
+   cursor-follow hero glow, 3D card tilt, heading mask wipe,
+   scatter-in grids, portfolio directional reveal, lightbox
+   iris transition, marquee depth layer.
+   All effects respect prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- CINEMATIC LETTERBOX LOAD-IN ---------- */
+.letterbox-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 14vh;
+  background: #000000;
+  z-index: 250;
+  pointer-events: none;
+  transition: transform 1.1s var(--ease-out-expo);
+}
+
+.letterbox-bar.top {
+  top: 0;
+  transform: translateY(0);
+}
+
+.letterbox-bar.bottom {
+  bottom: 0;
+  transform: translateY(0);
+}
+
+body.letterbox-open .letterbox-bar.top {
+  transform: translateY(-100%);
+}
+
+body.letterbox-open .letterbox-bar.bottom {
+  transform: translateY(100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letterbox-bar {
+    display: none;
+  }
+}
+
+/* ---------- SCROLL PROGRESS INDICATOR ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-red-soft), var(--accent-red));
+  box-shadow: 0 0 10px var(--accent-red-glow);
+  z-index: 220;
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+/* ---------- CUSTOM CURSOR (desktop pointer:fine only) ---------- */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 240;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.cursor-dot {
+  width: 28px;
+  height: 28px;
+  background: none;
+  color: var(--accent-red);
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.12s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(200, 16, 46, 0.5);
+  opacity: 0;
+  transition: width 0.26s var(--ease-out-expo), height 0.26s var(--ease-out-expo),
+    border-color 0.22s ease, opacity 0.18s ease, background 0.22s ease;
+}
+
+.cursor-ring.hovering {
+  width: 64px;
+  height: 64px;
+  border-color: var(--accent-red);
+  background: rgba(200, 16, 46, 0.08);
+}
+
+/* When hovering interactive targets, slightly scale the camera icon */
+.cursor-dot.hovering {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.cursor-dot svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  fill: currentColor;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.cursor-ready .cursor-dot {
+    display: flex;
+    opacity: 1;
+  }
+
+  body.cursor-ready .cursor-ring {
+    display: block;
+    opacity: 1;
+  }
+
+  body.cursor-ready,
+  body.cursor-ready a,
+  body.cursor-ready button {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body.cursor-ready,
+  body.cursor-ready a,
+  body.cursor-ready button {
+    cursor: auto;
+  }
+}
+
+/* ---------- HERO: KEN BURNS + CURSOR-FOLLOW GLOW ---------- */
+[data-hero-kenburns] {
+  animation: hero-kenburns 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes hero-kenburns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+}
+
+.hero-cursor-glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.22) 0%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.hero-cursor-glow.active {
+  opacity: 1;
+}
+
+@media (max-width: 900px), (hover: none) {
+  .hero-cursor-glow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-kenburns] {
+    animation: none;
+  }
+
+  .hero-cursor-glow {
+    display: none;
+  }
+}
+
+/* ---------- 3D CARD TILT ---------- */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+}
+
+[data-tilt]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.06) 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.06) 55%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: translateX(-120%);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+[data-tilt].sheen-active::after {
+  opacity: 1;
+  transition: transform 0.9s var(--ease-out-expo), opacity 0.3s ease;
+  transform: translateX(120%);
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  [data-tilt] {
+    transform: none !important;
+  }
+}
+
+/* ---------- HEADING MASK WIPE REVEAL ---------- */
+.section-head h2 {
+  overflow: hidden;
+}
+
+.heading-mask-line {
+  display: block;
+  overflow: hidden;
+}
+
+.heading-mask-line > span {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ---------- SCATTER-IN GRIDS ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-scatter-in] > * {
+    will-change: transform, opacity;
+  }
+}
+
+/* ---------- PORTFOLIO DIRECTIONAL REVEAL ---------- */
+[data-portfolio-reveal] .portfolio-card {
+  will-change: transform, opacity;
+}
+
+/* ---------- LIGHTBOX IRIS TRANSITION ---------- */
+.lightbox-frame {
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.6s var(--ease-out-expo);
+}
+
+.lightbox.open .lightbox-frame {
+  clip-path: circle(75% at 50% 50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-frame {
+    clip-path: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- MARQUEE DEPTH LAYER ---------- */
+.marquee {
+  position: relative;
+}
+
+.marquee-track-back {
+  display: flex;
+  gap: 80px;
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) scale(1.4);
+  animation: scroll-right-back 56s linear infinite;
+  opacity: 0.06;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.marquee-track-back span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+@keyframes scroll-right-back {
+  from {
+    transform: translateY(-50%) scale(1.4) translateX(-50%);
+  }
+  to {
+    transform: translateY(-50%) scale(1.4) translateX(0%);
+  }
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .marquee-track-back {
+    display: none;
+  }
+}
+
+/* ---------- PIN-SCRUB SECTION TRANSITIONS ---------- */
+.pin-transition-spacer {
+  position: relative;
+}
+
+/* ---------- STAT COUNT-UP ---------- */
+.stat-value[data-count-to] {
+  font-variant-numeric: tabular-nums;
+}

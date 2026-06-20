@@ -46,12 +46,19 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 
+  <!-- Preload vendor scripts so the browser fetches them during HTML parse -->
+  <link rel="preload" href="/assets/vendor/gsap/gsap.min.js" as="script">
+  <link rel="preload" href="/assets/vendor/gsap/ScrollTrigger.min.js" as="script">
+  <link rel="preload" href="/assets/vendor/lenis/lenis.min.js" as="script">
+  <link rel="preload" href="/assets/vendor/split-type/split-type.min.js" as="script">
+
   <!-- Modular CSS Stylesheets -->
   <link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/sections.css">
   <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/cinematic.css">
 
   <!-- Local Business Schema JSON-LD -->
   <script type="application/ld+json">
@@ -114,6 +121,17 @@
   <!-- Accessibility Skip Link -->
   <a href="#main" class="skip-link">Skip to content</a>
 
+  <!-- ============ CINEMATIC LOAD-IN: LETTERBOX BARS ============ -->
+  <div class="letterbox-bar top" id="letterboxTop" aria-hidden="true"></div>
+  <div class="letterbox-bar bottom" id="letterboxBottom" aria-hidden="true"></div>
+
+  <!-- ============ SCROLL PROGRESS INDICATOR ============ -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ============ CUSTOM CURSOR (desktop only) ============ -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="wrap">
@@ -140,12 +158,15 @@
 
     <!-- ============ 1. HERO SECTION ============ -->
     <section class="hero" id="top">
-      <div class="hero-bg"></div>
+      <div class="hero-bg" data-hero-kenburns></div>
 
       <!-- Video Background -->
-      <div class="hero-video-container" aria-hidden="true">
-        <video src="/assets/videos/hero.mp4" muted autoplay loop playsinline preload="metadata"></video>
+      <div class="hero-video-container" aria-hidden="true" data-hero-kenburns>
+        <video src="/assets/videos/hero.mp4" muted autoplay loop playsinline preload="none"></video>
       </div>
+
+      <!-- Cursor-follow ambient glow -->
+      <div class="hero-cursor-glow" id="heroCursorGlow" aria-hidden="true"></div>
 
       <!-- Concentric rings signature -->
       <div class="ring-field hero" aria-hidden="true" data-parallax-rings>
@@ -168,8 +189,8 @@
         <p id="hero-subheading">Premium content, strategic marketing, and visual storytelling designed to attract
           attention, build trust, and drive measurable growth.</p>
         <div class="hero-actions" id="hero-ctas">
-          <a href="#contact" class="btn btn-primary">Book a Strategy Call</a>
-          <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+          <a href="#contact" class="btn btn-primary" data-magnetic>Book a Strategy Call</a>
+          <a href="#portfolio" class="btn btn-outline" data-magnetic>View Our Work</a>
         </div>
       </div>
 
@@ -214,26 +235,26 @@
             credibility, creates desire, and turns interest into action.</p>
         </div>
 
-        <div class="demand-grid" data-stagger-grid>
-          <div class="demand-card">
+        <div class="demand-grid" data-stagger-grid data-scatter-in>
+          <div class="demand-card" data-tilt>
             <span class="step-num">01 — ATTRACT</span>
             <h3>Attract Attention</h3>
             <p>Create content that stops the scroll and sparks curiosity.</p>
           </div>
 
-          <div class="demand-card">
+          <div class="demand-card" data-tilt>
             <span class="step-num">02 — TRUST</span>
             <h3>Build Trust</h3>
             <p>Tell stories that establish credibility and connect with your audience.</p>
           </div>
 
-          <div class="demand-card">
+          <div class="demand-card" data-tilt>
             <span class="step-num">03 — DESIRE</span>
             <h3>Create Desire</h3>
             <p>Position your brand as the obvious choice.</p>
           </div>
 
-          <div class="demand-card">
+          <div class="demand-card" data-tilt>
             <span class="step-num">04 — ACTION</span>
             <h3>Drive Action</h3>
             <p>Turn engagement into enquiries, leads, and sales.</p>
@@ -286,26 +307,26 @@
           <p>A structured workflow engineered to take your brand from raw attention to conversion.</p>
         </div>
 
-        <div class="work-grid" data-stagger-grid>
-          <div class="work-card">
+        <div class="work-grid" data-stagger-grid data-scatter-in>
+          <div class="work-card" data-tilt>
             <span class="step-num">01</span>
             <h3>Discover</h3>
             <p>Understand business goals, audience, and opportunities.</p>
           </div>
 
-          <div class="work-card">
+          <div class="work-card" data-tilt>
             <span class="step-num">02</span>
             <h3>Create</h3>
             <p>Produce content designed to support those goals.</p>
           </div>
 
-          <div class="work-card">
+          <div class="work-card" data-tilt>
             <span class="step-num">03</span>
             <h3>Amplify</h3>
             <p>Distribute content strategically across the right channels.</p>
           </div>
 
-          <div class="work-card">
+          <div class="work-card" data-tilt>
             <span class="step-num">04</span>
             <h3>Convert</h3>
             <p>Turn attention into enquiries, leads, and sales.</p>
@@ -328,7 +349,7 @@
         <div data-reveal>
           <!-- VIDEOS TAB PANEL (Photos tab disabled) -->
           <div class="tab-panel active" id="panelVideos" role="tabpanel">
-            <div class="portfolio-grid videos" id="videoGrid">
+            <div class="portfolio-grid videos" id="videoGrid" data-portfolio-reveal>
               <!-- Dynamically populated from data/portfolio.json -->
             </div>
           </div>
@@ -356,9 +377,9 @@
         <!-- Ambient pulse glow behind actions -->
         <div class="contact-actions">
           <div class="contact-pulse-glow" aria-hidden="true"></div>
-          <a href="mailto:pixoraclips@gmail.com" class="btn btn-primary" style="z-index:2;">Book a Strategy Call</a>
+          <a href="mailto:pixoraclips@gmail.com" class="btn btn-primary" style="z-index:2;" data-magnetic>Book a Strategy Call</a>
           <a href="https://wa.me/918073981950?text=Hey%21%20Getting%20in%20touch%20with%20you%20through%20your%20portfolio"
-            class="btn btn-outline" target="_blank" rel="noopener" style="z-index:2;">Message on WhatsApp</a>
+            class="btn btn-outline" target="_blank" rel="noopener" style="z-index:2;" data-magnetic>Message on WhatsApp</a>
         </div>
         <span class="contact-helper-text">Typically responding within 2 hours.</span>
 

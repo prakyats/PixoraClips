@@ -10,6 +10,13 @@ html {
   scroll-behavior: smooth;
   height: auto;
   overflow-x: hidden;
+  /* Hide scrollbar — Chrome/Safari/Edge */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / old Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Edge */
 }
 
 html.lenis {
